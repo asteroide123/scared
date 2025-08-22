@@ -34,7 +34,7 @@ var opacity = 0;
 var secondOpacity = 0;
 var thirdOpacity = 0;
 
-// 🌟 Función que envuelve el texto automáticamente
+// 🌟 Texto con salto de línea automático
 function drawWrappedText(text, x, y, fontSize, lineHeight, maxWidth) {
     const words = text.split(" ");
     let line = "";
@@ -52,11 +52,9 @@ function drawWrappedText(text, x, y, fontSize, lineHeight, maxWidth) {
     }
     lines.push(line.trim());
 
-    // Calcular altura total del bloque
     const totalHeight = lines.length * lineHeight;
     let startY = y - totalHeight / 2;
 
-    // Dibujar cada línea
     lines.forEach((l, i) => {
         context.fillText(l, x, startY + i * lineHeight);
     });
@@ -74,15 +72,13 @@ function drawStars() {
 
 function updateStars() {
     for (var i = 0; i < stars; i++) {
-        if (Math.random() > 0.99) {
+        if (Math.random() > 0.995) {
             starArray[i].opacity = Math.random();
         }
     }
 }
 
 const button = document.getElementById("valentinesButton");
-
-// 👉 Botón permanece oculto hasta el final
 button.style.display = "none";
 
 button.addEventListener("click", () => {
@@ -91,115 +87,112 @@ button.addEventListener("click", () => {
     fetch('send_mail.php')
       .then(response => {
         if (response.ok) {
-          button.textContent = "tendras algo en whats ❤";
+          button.textContent = "tendrás algo en Whats ❤";
         } else {
-          console.error('Failed to send email');
-          button.textContent = "tendras algo en whats ❤";
+          button.textContent = "tendrás algo en Whats ❤";
         }
       })
-      .catch(error => {
-        console.error('Error:', error);
-        button.textContent = "tendras algo en whats ❤";
+      .catch(() => {
+        button.textContent = "tendrás algo en Whats ❤";
       });
   }
 });
 
 function drawText() {
-    // 🎯 Tipografía fluida según pantalla
     var fontSize = Math.max(14, Math.min(40, Math.min(canvas.width, canvas.height) * 0.05));
-    var lineHeight = fontSize * 1.6; // más espacio entre líneas
+    var lineHeight = fontSize * 1.6;
 
     context.font = fontSize + "px Comic Sans MS";
     context.textAlign = "center";
 
-    // Glow
     context.shadowColor = "rgba(45, 45, 255, 1)";
     context.shadowBlur = 8;
 
-    // Animaciones de texto
+    // Fades más suaves (0.005 en lugar de 0.01)
     if(frameNumber < 250){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Sorpresaaaaa!! sé que es ridículo y estoy temblando jajas pero...", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity + 0.01;
+        opacity += 0.005;
     }
     if(frameNumber >= 250 && frameNumber < 500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Sorpresaaaaa!! sé que es ridículo y estoy temblando jajas pero...", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity - 0.01;
+        opacity -= 0.005;
     }
 
     if(frameNumber == 500){ opacity = 0; }
     if(frameNumber > 500 && frameNumber < 750){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Quiero que sepas que eres la persona más especial que tengo en mi vida", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity + 0.01;
+        opacity += 0.005;
     }
     if(frameNumber >= 750 && frameNumber < 1000){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Soy tan afortunado de tenerte y odio más que nunca la distancia que nos separa", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity - 0.01;
+        opacity -= 0.005;
     }
 
     if(frameNumber == 1000){ opacity = 0; }
     if(frameNumber > 1000 && frameNumber < 1250){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Pero quiero decirte que te amo mucho más de lo que las palabras pueden describir", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity + 0.01;
+        opacity += 0.005;
     }
     if(frameNumber >= 1250 && frameNumber < 1500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Pero quiero decirte que te amo mucho más de lo que las palabras pueden describir", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity - 0.01;
+        opacity -= 0.005;
     }
 
     if(frameNumber == 1500){ opacity = 0; }
     if(frameNumber > 1500 && frameNumber < 1750){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Eres la niña de mis ojos, mi vida, mi TODO", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity + 0.01;
+        opacity += 0.005;
     }
     if(frameNumber >= 1750 && frameNumber < 2000){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Eres la niña de mis ojos, mi vida, mi TODO", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity - 0.01;
+        opacity -= 0.005;
     }
 
     if(frameNumber == 2000){ opacity = 0; }
     if(frameNumber > 2000 && frameNumber < 2250){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Me tienes completamente enamorado de TI, De tus ojitos, de tu carita, de como eres", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity + 0.01;
+        opacity += 0.005;
     }
     if(frameNumber >= 2250 && frameNumber < 2500){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Me tienes completamente enamorado de TI, De tus ojitos, de tu carita, de como eres", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity - 0.01;
+        opacity -= 0.005;
     }
 
     if(frameNumber == 2500){ opacity = 0; }
     if(frameNumber > 2500 && frameNumber < 99999){
         context.fillStyle = `rgba(45, 45, 255, ${opacity})`;
         drawWrappedText("Te amo por ser taaaaan RAFAELA, tanto como el tiempo y espacio existente en el universo", canvas.width/2, canvas.height/2, fontSize, lineHeight, canvas.width * 0.9);
-        opacity = opacity + 0.01;
+        opacity += 0.005;
     }
     
     if(frameNumber >= 2750 && frameNumber < 99999){
         context.fillStyle = `rgba(45, 45, 255, ${secondOpacity})`;
-        drawWrappedText("Y estoy muy agradecido contigo por todo, si eres tu lo quiero todo", canvas.width/2, (canvas.height/2 + 100), fontSize, lineHeight, canvas.width * 0.9);
-        secondOpacity = secondOpacity + 0.01;
+        drawWrappedText("Y estoy muy agradecido contigo por todo, si eres tú lo quiero todo", canvas.width/2, (canvas.height/2 + 100), fontSize, lineHeight, canvas.width * 0.9);
+        secondOpacity += 0.005;
     }
 
     if(frameNumber >= 3000 && frameNumber < 99999){
         context.fillStyle = `rgba(45, 45, 255, ${thirdOpacity})`;
         drawWrappedText("Un mes que me hubiese encantado compartirlo contigo <3", canvas.width/2, (canvas.height/2 + 200), fontSize, lineHeight, canvas.width * 0.9);
-        thirdOpacity = thirdOpacity + 0.01;
+        thirdOpacity += 0.005;
 
-        // 👉 Mostrar botón al final (abajo y centrado)
-        button.style.display = "block";
-        button.style.position = "absolute";
-        button.style.left = "50%";
-        button.style.bottom = "10%";
-        button.style.transform = "translateX(-50%)";
+        // 👉 Mostrar botón con animación
+        if (button.style.display === "none") {
+            button.style.display = "block";
+            // Responsivo
+            button.style.bottom = window.innerWidth < 600 ? "5%" : "10%";
+            setTimeout(() => { button.style.opacity = "1"; }, 100);
+        }
     }   
 
     context.shadowColor = "transparent";
