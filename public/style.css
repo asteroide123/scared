@@ -1,0 +1,49 @@
+ body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: black;
+      height: 100%;
+      width: 100%;
+    }
+    #starfield {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #valentinesButton {
+      display: none;
+      position: absolute;
+      left: 50%;
+      bottom: 50px;
+      transform: translateX(-50%);
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 12px;
+      background: #1e40af;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,0,255,0.7);
+    }
+    #valentinesButton:hover {
+      background: #2563eb;
+    }
+    
+/* 📱 Responsive ajustes */
+@media (max-width: 768px) {
+    #valentinesButton {
+        height: 45px;
+        font-size: 14px;
+        top: calc(50% + 120px);
+    }
+}
+
+@media (max-width: 480px) {
+    #valentinesButton {
+        height: 40px;
+        font-size: 12px;
+        padding: 0 15px;
+        top: calc(50% + 100px);
+    }
+}
